@@ -44,9 +44,11 @@ const PageProfile = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h2>프로필 수정</h2>
+    <div className="w-full flex flex-col items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h2 className="text-3xl font-bold text-primary-color mb-6">
+          프로필 수정
+        </h2>
         <form onSubmit={updateNickname}>
           <span>
             닉네임
@@ -56,9 +58,12 @@ const PageProfile = () => {
               onChange={handleChange}
               required
               placeholder={oldNickname}
+              className="w-full p-4 border border-gray-300 rounded-lg"
             />
           </span>
-          <button>프로필 업데이트</button>
+          <button className="w-full bg-primary-color p-4 rounded-lg hover:bg-secondary-color trasition duration-300 hover:text-gray-300">
+            프로필 업데이트
+          </button>
         </form>
       </div>
     </div>

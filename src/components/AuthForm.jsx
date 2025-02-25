@@ -31,6 +31,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           onChange={handleChange}
           placeholder="아이디"
           required
+          className="w-full p-4 border border-gray-300 rounded-lg"
         />
       </span>
       <span>
@@ -41,6 +42,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           onChange={handleChange}
           placeholder="비밀번호"
           required
+          className="w-full p-4 border border-gray-300 rounded-lg"
         />
       </span>
       {mode === "signup" && (
@@ -52,10 +54,13 @@ const AuthForm = ({ mode, onSubmit }) => {
             onChange={handleChange}
             placeholder="닉네임"
             required
+            className="w-full p-4 border border-gray-300 rounded-lg"
           />
         </span>
       )}
-      <button>{mode === "login" ? "로그인" : "회원가입"}</button>
+      <button className="w-full bg-primary-color p-4 rounded-lg hover:bg-secondary-color trasition duration-300 hover:text-gray-300">
+        {mode === "login" ? "로그인" : "회원가입"}
+      </button>
     </form>
   );
 };

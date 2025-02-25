@@ -14,14 +14,16 @@ const PageSignup = () => {
     }
   };
   return (
-    <div>
-      <div>
-        <h2>회원가입</h2>
+    <div className="w-full flex flex-col items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h2 className="text-3xl font-bold text-primary-color mb-6">회원가입</h2>
         <AuthForm mode="signup" onSubmit={handleSignup} />
         <div>
-          <p>
+          <p className="text-gray-600">
             이미 계정이 있으신가요?
-            <Link to={"/login"}>로그인</Link>
+            <Link to={"/login"} className="text-primary-color hover:underline">
+              로그인
+            </Link>
           </p>
         </div>
       </div>

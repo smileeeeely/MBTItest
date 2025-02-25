@@ -14,13 +14,13 @@ const PageResults = () => {
   }, [results]);
 
   return (
-    <div>
-      <div>
-        <h2>MBTI 테스트 결과</h2>
-        {results.map((result) => (
-          <Result key={result.date} resultData={result} />
-        ))}
-      </div>
+    <div className="w-full flex flex-col items-center justify-center bg-gray-100">
+      <h2 className="text-5xl font-bold text-primary-color mb-6">
+        MBTI 테스트 결과
+      </h2>
+      {results.map((result) => (
+        <Result key={result.date} resultData={result} />
+      ))}
     </div>
   );
 };
