@@ -1,17 +1,10 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserLoginContext } from "../provider/UserLoginProvider";
-import PageLogin from "./PageLogin";
-import PageTest from "./PageTest";
 
 const PageHome = () => {
   const navigate = useNavigate();
-  const { isLogin } = useContext(UserLoginContext);
 
   const navigateToTestOrLogin = () => {
-    isLogin
-      ? navigate("/test")
-      : (alert("로그인을 먼저 해주세요"), navigate("/login"));
+    navigate("/test");
   };
 
   return (
@@ -36,7 +29,7 @@ const PageHome = () => {
           배워보세요.
         </p>
       </div>
-      <button onClick={() => navigateToTestOrLogin()}>
+      <button type="button" onClick={navigateToTestOrLogin}>
         내 성격 알아보러 가기
       </button>
     </>

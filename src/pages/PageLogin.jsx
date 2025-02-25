@@ -6,19 +6,25 @@ import { UserLoginContext } from "../provider/UserLoginProvider";
 
 const PageLogin = () => {
   const navigate = useNavigate();
-  const { setIsLogin, setUser } = useContext(UserLoginContext);
+  const { loginState, setUser } = useContext(UserLoginContext);
+
   const handleLogin = async (formData) => {
     try {
       const response = await login(formData);
-      alert("로그인에 성공했습니다. 테스트페이지로 이동합니다.");
-      setUser(response);
-      setIsLogin(true);
-      navigate("/test");
+
+      if (response.success) {
+        setUser(response);
+        loginState(response.accessToken);
+        alert(`${response.nickname}님 환영합니다!`);
+        navigate("/");
+      } else {
+        alert("로그인에 실패했습니다.");
+      }
     } catch (error) {
-      console.log("error", error);
-      alert("로그인에 실패했습니다. 다시 시도해주세요.");
+      alert(error.response.data.message);
     }
   };
+
   return (
     <div>
       <div>
